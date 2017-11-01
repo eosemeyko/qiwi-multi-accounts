@@ -1,7 +1,6 @@
-UIBalances.controller('DashboardCtrl',function($scope) {
-    var socket = io();
+UIBalances.controller('DashboardCtrl',function($scope, socket) {
+    /* Listen data balances */
     socket.on('Data', function (data) {
-        console.log(data);
         $scope.action_accounts = data;
         $scope.$apply();
     })

@@ -1,4 +1,4 @@
-UIBalances.controller('HeaderCtrl',function($scope, $http, $uibModal, $ngConfirm) {
+UIBalances.controller('HeaderCtrl',function($scope, $http, $uibModal, $ngConfirm, socket) {
     /**
      * Show list Accounts
      */
@@ -47,5 +47,12 @@ UIBalances.controller('HeaderCtrl',function($scope, $http, $uibModal, $ngConfirm
                 }
             }
         });
+    };
+
+    /**
+     * Update balance init
+     */
+    $scope.updBalances = function () {
+        socket.emit('UpdateBalances');
     }
 });
