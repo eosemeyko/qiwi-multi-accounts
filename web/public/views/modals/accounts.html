@@ -1,0 +1,27 @@
+<div class="modal-header" align="center">
+    <h3 class="modal-title">Аккаунты</h3>
+</div>
+
+<div class="modal-body pn mn">
+    <div class="table-responsive">
+        <table class="table table-hover table-condensed" ng-if="accounts.length">
+            <thead>
+            <tr>
+                <th>Логин</th>
+                <th>Токен</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="ac in accounts">
+                <td>+7<span ng-bind="ac.login"></span></td>
+                <td ng-bind="ac.token"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="alert alert-danger" role="alert" ng-if="show_alert" ng-bind="show_alert"></div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-sm btn-success" type="button" ng-click="addAccount()"><span class="glyphicon glyphicon-plus"></span> Добавить</button>
+    <button class="btn btn-sm btn-default" type="button" ng-click="close()">Закрыть</button>
+</div>

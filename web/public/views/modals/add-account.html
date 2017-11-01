@@ -1,0 +1,13 @@
+<form name="form">
+    <div class="form-group">
+        <label class="control-label">Логин (номер без +7)</label>
+        <input ng-change="textChange()" type="text" name="login" ng-model="login" placeholder="9279999999" ng-pattern="patterns.login" class="form-control" required>
+
+        <label class="control-label">Токен</label>
+        <input ng-change="textChange()" type="text" name="token" ng-model="token" placeholder="Введите полученный токен" minlength="5" class="form-control" required>
+    </div>
+    <div class="alert alert-info" role="alert">
+        Токен должен быть действующий со страницы пользователя по адресу:<br>
+        <a href="https://qiwi.com/api">https://qiwi.com/api</a>
+    </div>
+</form>

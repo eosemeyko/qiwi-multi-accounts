@@ -1,2 +1,15 @@
 # IDE
 .idea
+
+# NPM
+node_modules
+
+# BOWER
+bower_components
+
+# Generation files
+web/public/assets/css
+web/public/assets/js
+
+# Other
+.package-lock.json

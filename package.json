@@ -1,0 +1,44 @@
+{
+  "name": "qiwi-balances",
+  "version": "0.0.1",
+  "private": true,
+  "author": "admin@razieldev.ru",
+  "bin": "./bin/www.js",
+  "scripts": {
+    "preinstall": "bower install",
+    "postinstall": "node ./node_modules/gulp/bin/gulp.js",
+    "preupdate": "bower update",
+    "postupdate-deps": "node ./node_modules/gulp/bin/gulp.js",
+    "start": "node ./bin/www.js",
+    "build_win32": "pkg package.json --targets node6-win-x86 --output dist/qiwi_balances_ui.exe",
+    "build_lin32": "pkg package.json --targets node6-linux-x86 --output dist/qiwi_balances_ui.bin"
+  },
+  "dependencies": {
+    "async": "^2.5.0",
+    "body-parser": "~1.18.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "ejs": "~2.5.7",
+    "express": "~4.15.5",
+    "lodash": "^4.17.4",
+    "morgan": "~1.9.0",
+    "node-cache": "^4.1.1",
+    "optimist": "^0.6.1",
+    "request": "^2.83.0",
+    "socket.io": "^2.0.4",
+    "url-join": "^2.0.2"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-clean-css": "^2.4.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-ng-annotate": "^2.0.0",
+    "gulp-uglify": "^1.5.3"
+  },
+  "pkg": {
+    "assets": [
+      "src/views/*",
+      "web/public/**/*"
+    ]
+  }
+}

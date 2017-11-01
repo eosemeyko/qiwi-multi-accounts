@@ -1,0 +1,17 @@
+<div class="col-sm-4 col-md-2" ng-repeat="ac in action_accounts">
+    <div class="panel panel-primary">
+        <div class="panel-body bg-primary text-center">
+            <h1>
+                <span ng-bind="ac.balance"></span>
+                <span class="glyphicon glyphicon-rub" style="font-size: 2rem;"></span>
+            </h1>
+            <h5>+7<span ng-bind="ac.login"></span></h5>
+        </div>
+    </div>
+</div>
+
+<div class="alert alert-warning" role="alert" ng-if="!action_accounts.length">
+    <span class="glyphicon glyphicon-warning-sign"></span>
+    <b>Данных нет!</b><br>
+    Ожидайте или добавьте новые аккаунты
+</div>

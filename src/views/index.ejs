@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html data-ng-app="QIWIBalancesUI" lang="en" manifest="manifest.appcache">
+
+<head>
+    <meta charset="utf-8">
+    <title>QIWI Балансы</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Interface Qiwi Balances Monitoring">
+    <meta name="keywords" content="Qiwi, Balances, Monitoring">
+    <!-- STYLES -->
+    <link rel="stylesheet" href="assets/css/plugins.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- SCRIPTS -->
+    <script src="assets/js/plugins.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="assets/js/core.js"></script>
+    <script src="assets/js/app.js"></script>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div ng-include="'views/header.html'" ng-controller="HeaderCtrl"></div>
+<!-- END HEADER -->
+
+<!-- CONTENT -->
+<div class="container-fluid" ng-include="'views/dashboard.html'" ng-controller="DashboardCtrl"></div>
+<!-- END CONTENT -->
+
+</body>
+</html>
