@@ -10,6 +10,9 @@ const config = require('../../config/default');
 /* FILE PATH */
 const file = path.join(config.file);
 
+/* Get balance */
+const getBalance = require('../get-balances');
+
 /* GET home page. */
 router.get('/', (req, res, next) => res.render('index'));
 
@@ -59,6 +62,10 @@ router.post('/account', (req, res) => {
         // Сохраняем в файл
         fs.writeFile(file, JSON.stringify(data, null, '\t'), (err) => {
             if (err) return res.sendStatus(400);
+
+            // Get balance
+            getBalance.start();
+
             res.sendStatus(200);
         });
     });

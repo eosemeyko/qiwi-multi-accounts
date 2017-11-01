@@ -19,6 +19,11 @@ module.exports = {
 
             const data = memory.get('Data');
             if(data) socket.emit('Data', data);
+
+            socket.on('UpdateBalances', () => {
+                // Get balance
+                require('../get-balances').start();
+            });
         });
     },
     /**

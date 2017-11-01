@@ -2,7 +2,6 @@ const _ = require('lodash'),
     fs = require('fs'),
     path = require('path'),
     async = require('async'),
-    argv = require('optimist').argv,
     debug = require('debug')('qiwi-balances:get-balances');
 
 /* CONFIG */
@@ -17,10 +16,9 @@ const qiwi = require('./services/qiwi'),
     memory = require('./services/memory');
 
 module.exports = {
-    start: () => {
+    start: function() {
         debug('start ---');
         GetFile();
-        setInterval(GetFile, argv.timeout && !isNaN(Number(argv.timeout)) ? argv.timeout : config.timeout);
     }
 };
 
