@@ -10,6 +10,7 @@ bower_components
 # Generation files
 web/public/assets/css
 web/public/assets/js
+dist
 
 # Other
 .package-lock.json
