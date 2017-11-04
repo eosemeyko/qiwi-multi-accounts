@@ -17,23 +17,7 @@ const getBalance = require('../get-balances');
 router.get('/', (req, res, next) => res.render('index'));
 
 /* Get accounts list */
-router.get('/accounts', (req, res) => {
-    let data = [];
-
-    /* GET file data */
-    fs.readFile(file, 'utf8', (err, fd) => {
-        if (err) return res.sendStatus(404);
-
-        try {
-            data = JSON.parse(fd);
-        } catch (e) {
-            return res.sendStatus(400);
-        }
-
-        if(_.isEmpty(data) || !_.isArray(data)) return res.sendStatus(404);
-        res.json(data);
-    });
-});
+router.get('/accounts', (req, res) => res.sendFile(file));
 
 /* Added new account */
 router.post('/account', (req, res) => {
