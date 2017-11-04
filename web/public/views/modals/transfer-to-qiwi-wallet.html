@@ -1,0 +1,15 @@
+<div class="modal-header" align="center">
+    <h3 class="modal-title">
+        Перевод <span class="glyphicon glyphicon-hand-right"></span> <span class="label label-primary">+7{{wallet}}</span>
+    </h3>
+</div>
+
+<div class="modal-body">
+    <ul class="list-group">
+        <li class="list-group-item" ng-repeat="text in transferLog" ng-bind="text"></li>
+    </ul>
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-sm btn-default" type="button" ng-click="close()" ng-disabled="close_disable">Закрыть</button>
+</div>

@@ -54,5 +54,18 @@ UIBalances.controller('HeaderCtrl',function($scope, $http, $uibModal, $ngConfirm
      */
     $scope.updBalances = function () {
         socket.emit('UpdateBalances');
+    };
+
+    /**
+     * Show Select Transfer
+     */
+    $scope.showTransfer = function () {
+        $scope.updBalances();
+
+        /* Open modal */
+        $uibModal.open({
+            templateUrl: 'views/modals/select-transfer.html',
+            controller: 'modalSelectTransfer'
+        }).result.catch(function () {});
     }
 });
