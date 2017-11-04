@@ -47,6 +47,7 @@ function GetFile() {
             GetBalance(account.token).then(res => {
                 if(res) result.push({
                     login: account.login,
+                    token: account.token,
                     balance: Math.round(res)
                 });
                 callback()
