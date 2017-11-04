@@ -24,6 +24,22 @@ UIBalances.factory('socket', function () {
                 if (callback)
                     callback.apply(socket, arguments);
             })
+        },
+
+        /**
+         * Remove listen events (Array)
+         * @param eventsName
+         */
+        removeListeners: function (eventsName) {
+            /* global angular */
+            // {Array}
+            if(angular.isArray(eventsName))
+                return angular.forEach(eventsName,function (event) {
+                    socket.off(event);
+                });
+
+            // {String}
+            socket.off(eventsName);
         }
     };
 });
