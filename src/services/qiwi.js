@@ -17,6 +17,31 @@ module.exports = function (token) {
          */
         getBalance: () => {
             return _sendRequest('GET', 'funding-sources/v1/accounts/current');
+        },
+
+        /**
+         * Transfer to other QIWI wallet
+         * @param sum - Transfer amount
+         * @param wallet - Account to be transferred to
+         * @returns {Promise}
+         */
+        transferToQIWIwallet: (sum, wallet) => {
+            const unix_timestamp = Math.floor(new Date() / 1000);
+            return _sendRequest('POST', 'sinap/api/v2/terms/99/payments', {
+                "id": unix_timestamp * 1000,
+                "sum": {
+                    "amount": sum,
+                    "currency":"643"
+                },
+                "paymentMethod": {
+                    "type":"Account",
+                    "accountId":"643"
+                },
+                "comment":"transfer from the UI",
+                "fields": {
+                    "account": '+7'+wallet
+                }
+            });
         }
     };
 
@@ -67,13 +92,14 @@ module.exports = function (token) {
             return request(requestUri, requestOptions, (err, response, body) => {
                 if (err) {
                     console.log(err);
-                    return reject();
+                    return reject(err);
                 }
 
                 try {
                     body = JSON.parse(body)
                 } catch(e) {
-                    return reject();
+                    console.log('Request parse error');
+                    return reject('Request parse error');
                 }
 
                 resolve(body);
